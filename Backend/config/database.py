@@ -35,6 +35,7 @@ class Message(Base):
     __tablename__ = "messages"
     id = Column(Integer, primary_key=True)
     chat_id = Column(Integer, ForeignKey("chats.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     content = Column(Text, nullable=False)
     role = Column(String(20), default="user")
     created_at = Column(DateTime, default=datetime.utcnow)
